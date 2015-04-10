@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="webshop">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<title>Web shop</title>
+	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+
+</head>
+<body> 
+		<ng-include src=" 'menu.html'  " ></ng-include>
+
+	
+	<div ng-view></div>
+	 
+
+
+
+
+	<script src="node_modules/angular/angular.min.js"></script>
+	<script src="bower_components/angular-route/angular-route.js"></script>
+	<script src="app.module.js"></script>
+	<script src="js/product.service.js"></script>		
+	<script src="Cart/cart.service.js"></script>
+	<script src="js/app.js"></script>
+	<script src="Cart/cart.controller.js"></script>
+	<script src="js/product.js"></script>
+
+	
+</body>
+</html>

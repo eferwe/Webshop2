@@ -1,0 +1,196 @@
+
+<div ng-controller="adminController">
+
+<div class="container" ng-controller="productsController">	
+
+	<div class="row">
+		<!-- first -->
+
+		<div class="col-lg-3">
+					<h2>Products <span class="badge">  {{ products.length }} </span> </h2>
+					<h2> {{error}} </h2>
+
+					<!-- <p> {{ productName }} </p> -->
+					 
+					<input type="search" placeholder="Search product name" ng-model="productName" />
+						
+							<div ng-repeat="catObject in categories">
+							<input type="checkbox" ng-click="categoryChange(catObject.category)"> {{ catObject.category }}
+							</div>
+		
+		</div>
+			<h2>Create product</h2>	
+			<div class="col-lg-4" ng-controller="productController">
+			<div ng-show="notification" class="alert alert-success">{{ notification }}</div> 
+			<form ng-submit="save()">
+			  <div class="form-group">
+			    <label for="id">id</label>
+			    <input type="text" ng-model="product.id" class="form-control" id="id" name="id" placeholder="Enter id">
+			  </div>
+			  <div class="form-group">
+			    <label for="name">name</label>
+			    <input type="text" ng-model="product.name" class="form-control" id="name" name="name" placeholder="Enter name">
+			  </div>
+			  <div class="form-group">
+			    <label for="price">price</label>
+			    <input type="text" ng-model="product.price" class="form-control" id="price" name="price" placeholder="Enter price">
+			  </div>
+			  <div class="form-group">
+			    <label for="category">category</label>
+			    <input type="text" ng-model="product.category" class="form-control" id="category" name="category" placeholder="Enter category">
+			  </div>
+			  <div class="form-group">
+			    <label for="imageUrl">image</label>
+			    <input type="text" ng-model="product.imageUrl" class="form-control" id="imageUrl" name="imageUrl" placeholder="Enter image">
+			  </div>
+			  <div class="form-group">
+			    <label for="describtion">describtion</label>
+			    <input type="text" ng-model="product.describtion" class="form-control" id="describtion" name="describtion" placeholder="Enter describtion">
+			  </div>
+			  <button type="submit" class="btn btn-primary">Submit</button>
+			</form>						 			 	
+			
+		</div>
+		
+		<div><h2>Orders</h2></div>
+			
+		<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6" ng-controller="ordersController"	
+														 ng-repeat="order in orders" class="thumbnail">
+							<!-- <a ng-href="#/productedit/{{product.id}}" class="thumb">
+								<img class="img-responsive" ng-src="{{product.imageUrl}}" ></a> -->
+
+									<div class="well">
+									<h4>{{order.product}}</h4>
+									<label>
+										quantity:
+									</label>
+									<p> {{order.quantity}}</P>
+									<label>
+										Total:
+									</label>
+									<p> {{order.total}}</P>
+									<label>
+										Total Sum:
+									</label>
+									<p> {{order.totalsum}}</P>	
+									</div>
+								<div><form>
+									 <button class="btn btn-danger" ng-click="deleteOrder(order)">Remove</button>
+									</form>
+								</div>
+								<!-- <div>
+									<a class="btn btn-warning"  ng-href="#/productedit/{{product.id}}">Edit</a>
+									
+								</div>
+ -->
+				</div>
+
+
+
+
+
+
+
+
+
+	</div>	<!--  end of the main row -->
+	
+	<div class="row"> <!-- second ro´w -->
+				
+
+		<div><h2>Products</h2></div>
+			
+		<div class="col-lg-3 col-md-3 col-sm-4 col-xs-6"	
+														 ng-repeat="product in products | filter:productName | filter:categoryFilter" class="thumbnail">
+							<a ng-href="#/productedit/{{product.id}}" class="thumb">
+								<img class="img-responsive" ng-src="{{product.imageUrl}}" ></a>
+
+									<div class="well">
+									<h4>{{product.name}}</h4>
+									<label>
+										Price:
+									</label>
+									<p> {{product.price}}</P>
+									</div>
+								<div class="col-xs-6" ><form>
+									 <button class="btn btn-danger" ng-click="deleteProduct(product)">Remove</button>
+									</form>
+
+								</div>
+								<div class="col-xs-6">
+									<a class="btn btn-warning"  ng-href="#/productedit/{{product.id}}">Edit</a>
+									
+								</div>
+
+				</div>
+
+	</div> <!-- second row -->
+
+
+			
+		
+  <!-- end foirst -->
+
+	
+				
+
+</div> <!-- end container -->
+
+</div>
+
+
+
+
+
+
+
+
+<!-- ------------------------------------------------------------------------------------------------ 
+
+
+<div class="col-lg-9">
+	<div ng-controller="cartController" class="well">
+		<h2>Cart</h2>
+		<table class="table table-bordered table-striped">
+			<tr>
+				<th>Product</th>
+				<th>Quantity</th>
+				<th>Total</th>
+				<th>Confirm</th>
+				<th>Delete</th>
+			</tr>
+			<tr ng-repeat="cartProduct in cartProducts">
+				<td> {{cartProduct.product.name}} </td>
+				<td> {{cartProduct.quantity}} </td>
+				<td>{{ cartProduct.total}}</td>
+				<td>
+					<form ng-submit="">
+						<button type="submit" class="btn btn-success">Payment</button>
+					</form>
+
+				</td>
+				<td>
+					<form>
+						<button type="submit" ng-click="deleteCartProduct(cartProduct)" class="btn btn-danger" >Delete</button>
+					</form>
+				</td>
+			</tr>
+			<tr>
+				<td>Total Sum</td>
+			 	<td></td>
+			 
+				<td>{{ totalsum}}</td>
+				<td></td>
+				<td></td>
+			</tr>
+			
+				
+			 	
+		</table>
+	</div>			 	
+	
+	
+	
+</div>
+
+-->

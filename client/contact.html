@@ -1,0 +1,63 @@
+<div class="container" ng-controller="contactController">
+	<h2>Contact page</h2>
+				<div class="row">		
+					
+					<div class="col-lg-4"> <!-- the single product -->
+						
+							
+
+					</div> <!-- END the single product bbbbb-->
+
+					<!-- cart product -->
+
+					<div class="col-lg-8" ng-controller="cartController" class="well">
+						<h2>Cart</h2>
+						<table class="table table-bordered table-striped">
+							<tr>
+								<th>Product</th>
+								<th>Quantity</th>
+								<th>Total</th>
+								<th>Confirm</th>
+								<th>Delete</th>
+							</tr>
+							<tr ng-repeat="cartProduct in cartProducts">
+								<td> {{cartProduct.product.name}} </td>
+								<td> {{cartProduct.quantity}} </td>
+								<td>{{ cartProduct.total}}</td>
+								<td>
+									<form ng-submit="">
+										<button type="submit" class="btn btn-success">Payment</button>
+									</form>
+
+								</td>
+								<td>
+									<form>
+										<button type="submit" ng-click="deleteCartProduct(cartProduct)" class="btn btn-danger" >Delete</button>
+									</form>
+								</td>
+							</tr>
+							<tr>
+								<td>Total Sum</td>
+							 	<td></td>
+							 
+								<td>{{ totalsum}}</td>
+								<td></td>
+								<td></td>
+							</tr>
+							
+								
+							 	
+						</table>
+					</div>			 	
+					
+
+				
+					
+				</div>
+</div>
+
+
+	
+	
+	
+	

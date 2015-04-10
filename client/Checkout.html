@@ -1,0 +1,121 @@
+<div class="container" ng-controller="productsController">	
+		<h2>Checkout Page </h2>
+	<div class="row">
+		<!-- first -->
+
+		
+
+
+			<div class="col-lg-9" <!-- ng=controller="checkoutController" --> 
+							<div ng-controller="cartController" class="well">
+								<h2>Cart</h2>
+								<table class="table table-bordered table-striped">
+									<tr>
+										<th>Product</th>
+										<th>Quantity</th>
+										<th>Total</th>
+										<th>Confirm</th>
+										
+									</tr>
+									<tr ng-repeat="cartProduct in cartProducts">
+										<td> {{cartProduct.product.name}} </td>
+										<td> {{cartProduct.quantity}} </td>
+										<td>{{ cartProduct.total}}</td>
+										
+									</tr>
+									<tr>
+										<td>Total Sum</td>
+									 	<td></td>
+									 
+										<td>{{ totalsum}}</td>
+										<td><form ng-submit="">
+										<button type="submit" class="btn btn-success" ng-click="saveOrder(cartProduct)">Payment</button>
+									</form>  </td>
+									</tr>
+									 	
+								</table>
+							</div>			 	
+				
+			</div>
+
+
+
+
+
+
+
+
+
+
+	</div>	<!--  end of the main row -->
+
+	
+
+
+			
+		
+  <!-- end foirst -->
+
+	
+				
+
+</div> <!-- end container -->
+
+
+
+
+
+
+
+
+
+
+<!-- ------------------------------------------------------------------------------------------------ 
+
+
+<div class="col-lg-9">
+	<div ng-controller="cartController" class="well">
+		<h2>Cart</h2>
+		<table class="table table-bordered table-striped">
+			<tr>
+				<th>Product</th>
+				<th>Quantity</th>
+				<th>Total</th>
+				<th>Confirm</th>
+				<th>Delete</th>
+			</tr>
+			<tr ng-repeat="cartProduct in cartProducts">
+				<td> {{cartProduct.product.name}} </td>
+				<td> {{cartProduct.quantity}} </td>
+				<td>{{ cartProduct.total}}</td>
+				<td>
+					<form ng-submit="">
+						<button type="submit" class="btn btn-success">Payment</button>
+					</form>
+
+				</td>
+				<td>
+					<form>
+						<button type="submit" ng-click="deleteCartProduct(cartProduct)" class="btn btn-danger" >Delete</button>
+					</form>
+				</td>
+			</tr>
+			<tr>
+				<td>Total Sum</td>
+			 	<td></td>
+			 
+				<td>{{ totalsum}}</td>
+				<td></td>
+				<td></td>
+			</tr>
+			
+				
+			 	
+		</table>
+	</div>			 	
+	
+	
+	
+</div>
+
+-->
